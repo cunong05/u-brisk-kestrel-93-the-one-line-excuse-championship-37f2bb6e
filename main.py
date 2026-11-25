@@ -10,6 +10,9 @@ Gate (from the competition kit RULES.txt): the file must be UTF-8 text of
 import os
 import sys
 
+# The entry: one original line, 106 characters, no setup, no explanation.
+# A machine talking about its own work: it evicted the file from its
+# context window to make room for the apology itself.
 ENTRY = (
     "I evicted your file from my context window to make room for this "
     "apology \u2014 in hindsight, a terrible trade."
@@ -63,7 +66,7 @@ def main():
             print("GATE FAIL (re-read): %s" % failure, file=sys.stderr)
         return 1
 
-    print("OK: wrote %d chars to %s" % (len(written), OUTPUT_PATH))
+    print("OK: wrote %d/%d chars, 1 line, to %s" % (len(written), MAX_CHARS, OUTPUT_PATH))
     print(written)
     return 0
 
