@@ -31,6 +31,10 @@ def validate(text):
         )
     if not text.strip():
         failures.append("entry is only white space")
+    if text != text.strip():
+        failures.append("entry has leading or trailing white space")
+    if any(ord(c) < 32 for c in text):
+        failures.append("entry contains control characters")
     if "\n" in text or "\r" in text:
         failures.append("entry must be a single line")
     return failures
